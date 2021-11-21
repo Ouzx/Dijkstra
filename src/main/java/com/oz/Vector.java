@@ -5,6 +5,9 @@ public class Vector {
     private final int distance;
 
     public Vector(Node node, int distance) {
+        if (distance < 0) {
+            throw new IllegalArgumentException("Distance must be positive");
+        }
         this.distance = distance;
         this.node = node;
     }

@@ -31,6 +31,9 @@ public class Node {
     }
 
     public void setRelativeDistance(int distance) {
+        if (distance < 0) {
+            throw new IllegalArgumentException("Distance must be positive");
+        }
         this.relativeDistance = distance;
     }
 
