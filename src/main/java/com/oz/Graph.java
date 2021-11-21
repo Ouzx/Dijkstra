@@ -8,10 +8,10 @@ public class Graph {
     public Graph(Node[] graph, Node startNode) {
         this.startNode = startNode;
         this.startNode.setVisited(true);
+        this.startNode.setRelativeDistance(0);
 
         this.graph = graph;
 
-        startNode.setRelativeDistance(0);
         stack = new Stack();
 
     }
