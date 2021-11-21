@@ -1,21 +1,23 @@
 package com.oz;
 
-/**
- * Hello world!
- *
- */
 public class App {
+
+    static Node A = new Node("A");
+    static Node B = new Node("B");
+    static Node C = new Node("C");
+    static Node D = new Node("D");
+    static Node E = new Node("E");
+    static Node F = new Node("F");
+
     public static void main(String[] args) {
-        printGraph(Graph());
+        Graph graph = new Graph(GraphData(), C);
+        Dijkstra dijkstra = new Dijkstra(graph);
+        dijkstra.run();
+        graph.printGraph();
+        graph.printMatrix();
     }
 
-    public static Node[] Graph() {
-        Node A = new Node("A");
-        Node B = new Node("B");
-        Node C = new Node("C");
-        Node D = new Node("D");
-        Node E = new Node("E");
-        Node F = new Node("F");
+    public static Node[] GraphData() {
 
         // A
         A.addVector(new Vector(B, 7));
@@ -52,27 +54,4 @@ public class App {
         return new Node[] { A, B, C, D, E, F };
 
     }
-
-    public static void printGraph(Node[] nodes) {
-        for (Node node : nodes) {
-            System.out.println("----------------------");
-            System.out.println(node.getName() + ": ");
-            for (Vector vector : node.getVectors()) {
-                System.out.println("\t" + vector.getNode().getName() + ": " + vector.getDistance());
-            }
-            System.out.println("----------------------");
-        }
-    }
 }
-
-// // shortest distance from this node to the target node
-// public int getDistance(Node target) {
-// int distance = Integer.MAX_VALUE;
-// for (Vector vector : vectors) {
-// if (vector.getNode().equals(target)) {
-// distance = vector.getDistance();
-// break;
-// }
-// }
-// return distance;
-// }
